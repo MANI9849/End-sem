@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+
+    <input type="text" id="email" placeholder="Enter Email">
+    <br><br>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <br><br>
+
+    <button onclick="login()">Login</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        // Save login details
+        localStorage.setItem("email", "mani@example.com");
+        localStorage.setItem("password", "kanta123");
+
+        function login() {
+            let user = document.getElementById("email").value;
+            let pass = document.getElementById("password").value;
+
+            let savedUser = localStorage.getItem("email");
+            let savedPass = localStorage.getItem("password");
+
+            if (user === savedUser && pass === savedPass) {
+                document.getElementById("result").innerHTML =
+                    "Login Successfully!";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Invalid Email or Password!";
+            }
+        }
+    </script>
+
+</body>
+</html>
